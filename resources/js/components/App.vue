@@ -32,6 +32,9 @@
         @cancel-form="hideForm"
       />
     </transition>
+
+    <!-- Router View for Dynamic Page Content -->
+    <router-view></router-view>
   </div>
 </template>
 

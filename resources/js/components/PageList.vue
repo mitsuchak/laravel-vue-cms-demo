@@ -5,7 +5,11 @@
       <div class="page-content">
         {{ page.title }}
         <div class="page-actions">
+          <!-- View Button -->
+          <button @click="viewPage(page.slug)" class="view-button">View</button>
+          <!-- Edit Button -->
           <button @click="editPage(page.id)" class="edit-button">Edit</button>
+          <!-- Delete Button -->
           <button @click="deletePage(page.id)" class="delete-button">Delete</button>
         </div>
       </div>
@@ -30,6 +34,12 @@ export default {
     },
   },
   methods: {
+    // Navigate to the frontend route for the page
+    viewPage(slug) {
+        const url = `/slug-pages/${slug}`;
+        window.open(url, '_blank');
+    },
+
     // Handle page edit
     editPage(pageId) {
       this.$emit('edit-page', pageId);
@@ -107,8 +117,17 @@ export default {
   transition: background-color 0.3s ease;
 }
 
+.view-button {
+  background-color: #2196f3; /* Blue */
+  color: white;
+}
+
+.view-button:hover {
+  background-color: #1e88e5; /* Darker blue */
+}
+
 .edit-button {
-  background-color: #4CAF50; /* Green */
+  background-color: #4caf50; /* Green */
   color: white;
 }
 

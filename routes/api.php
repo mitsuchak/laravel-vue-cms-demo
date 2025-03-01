@@ -10,3 +10,5 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PageController;
 
 Route::apiResource('pages', PageController::class);
+
+Route::get('/slug-pages/{slug}', [PageController::class, 'show_slug'])->where('slug', '.*');
